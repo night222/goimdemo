@@ -21,7 +21,7 @@ func main() {
 	// Create
 	user := models.UserBasic{
 		Name:          "first user",
-		Passworld:     "123123",
+		Password:      "123123",
 		LoginTime:     time.Now(),
 		HeartbeatTime: time.Now(),
 		LoginOutTime:  time.Now(),

@@ -10,6 +10,27 @@ paths:
             type: string
       tags:
       - 首页
+  /login:
+    post:
+      parameters:
+      - description: 用户名
+        in: formData
+        name: username
+        required: true
+        type: string
+      - description: 密码
+        in: formData
+        name: password
+        required: true
+        type: string
+      responses:
+        "200":
+          description: code","massage"}
+          schema:
+            type: string
+      summary: 登录
+      tags:
+      - 登录
   /user:
     delete:
       parameters:
@@ -44,12 +65,12 @@ paths:
         type: string
       - description: 密码
         in: formData
-        name: passworld
+        name: password
         required: true
         type: string
       - description: 确认密码
         in: formData
-        name: repassworld
+        name: repassword
         required: true
         type: string
       - description: 手机号
@@ -78,7 +99,7 @@ paths:
         type: string
       - description: 密码
         in: formData
-        name: passworld
+        name: password
         type: string
       - description: 手机号
         in: formData

@@ -10,12 +10,13 @@ import (
 type UserBasic struct {
 	gorm.Model
 	Name          string
-	Passworld     string
+	Password      string
 	Phone         string `valid:"matches(^1[3-9]{1}\\d{9}$)"` //添加验证正则
 	Email         string `valid:"email"`                      //添加验证规则
 	Identity      string //唯一标识
 	ClientIp      string
 	ClinetPort    string //端口
+	Salt          string //用户加密标识
 	LoginTime     time.Time
 	HeartbeatTime time.Time
 	LoginOutTime  time.Time

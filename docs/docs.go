@@ -118,6 +118,13 @@ const docTemplate = `{
                         "name": "repassworld",
                         "in": "formData",
                         "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "手机号",
+                        "name": "phone",
+                        "in": "formData",
+                        "required": true
                     }
                 ],
                 "responses": {

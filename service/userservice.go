@@ -40,21 +40,29 @@ func CreateUser(ctx *gin.Context) {
 	}
 	user.Name = ctx.PostForm("username")
 	user.Phone = ctx.PostForm("phone")
-	passworld := ctx.PostForm("passworld")
+	user.Passworld = ctx.PostForm("passworld")
 	repassworld := ctx.PostForm("repassworld")
-	if passworld != repassworld {
+	if user.Passworld != repassworld {
 		ctx.JSON(http.StatusBadGateway, gin.H{
 			"massage": "passworld and repassworld do not agree",
 		})
 	}
-	vailUser := models.FirstUser(user)
-	if vailUser.Name == "" {
+	//验证手机号格式
+	_, err := govalidator.ValidateStruct(user)
+	if err != nil {
+		ctx.JSON(400, gin.H{
+			"massage": "创建失败，手机号格式错误!",
+		})
+		return
+	}
+	where := "name = ? OR phone = ?"
+	vailUser := models.FirstUser(where, user.Name, user.Phone)
+	if vailUser.Name != "" {
 		ctx.JSON(400, gin.H{
 			"massage": "创建失败，用户名或手机号已存在!",
 		})
 		return
 	}
-	user.Passworld = passworld
 	models.CreateUser(user)
 	ctx.JSON(http.StatusCreated, gin.H{
 		"massage": "创建成功",

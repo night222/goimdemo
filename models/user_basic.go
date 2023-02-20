@@ -52,8 +52,8 @@ func UpdateUser(user *UserBasic) *gorm.DB {
 }
 
 // 查询单个用户
-func FirstUser(where *UserBasic) UserBasic {
+func FirstUser(query interface{}, arg ...interface{}) UserBasic {
 	user := &UserBasic{}
-	utils.DB.Where(where).First(user)
+	utils.DB.Where(query, arg...).First(user)
 	return *user
 }

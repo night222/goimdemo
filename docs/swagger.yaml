@@ -52,6 +52,11 @@ paths:
         name: repassworld
         required: true
         type: string
+      - description: 手机号
+        in: formData
+        name: phone
+        required: true
+        type: string
       responses:
         "200":
           description: code","massage"}

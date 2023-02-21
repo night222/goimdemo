@@ -7,10 +7,12 @@ package utils
 import (
 	"fmt"
 	"goimdemo/config"
+	"io"
 	"log"
 	"os"
 	"time"
 
+	"github.com/gin-gonic/gin"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
@@ -33,6 +35,11 @@ func Init() (err error) {
 		return
 	}
 	fmt.Println("Mysql init")
+	ginLogWriter, err := RotationFile("/%Y-%m-%d.log")
+	if err != nil {
+		return
+	}
+	gin.DefaultWriter = io.MultiWriter(ginLogWriter, os.Stdout)
 	return
 }
 
@@ -46,9 +53,10 @@ func InitConfig() (err error) {
 func InitMysql() (err error) {
 	//设置把sql日志输出到控制台
 	newLOger := logger.New(log.New(os.Stdout, "\r\n", log.LstdFlags), logger.Config{
-		SlowThreshold: time.Second, //慢sql阈值
-		LogLevel:      logger.Info, //级别
-		Colorful:      true,        //彩色
+		SlowThreshold:             time.Second, //慢sql阈值
+		LogLevel:                  logger.Info, //级别
+		Colorful:                  true,        //彩色
+		IgnoreRecordNotFoundError: false,       //是否显示没有查询到的结果
 	})
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=%s&parseTime=%s%s",
 		ConfigData.UserName,

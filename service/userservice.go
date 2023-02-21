@@ -199,8 +199,18 @@ func Login(ctx *gin.Context) {
 			user.DeviceInfo = deviceInfos[0]
 		}
 	}
+	token, err := utils.GenerateToken(user.ID, user.Name)
+	if err != nil {
+		ctx.JSON(400, gin.H{
+			"message": "Invail Token",
+			"error":   err,
+			"token":   token,
+		})
+		return
+	}
 	models.UpdateUser(&user)
 	ctx.JSON(200, gin.H{
 		"message": "登录成功！",
+		"token":   token,
 	})
 }

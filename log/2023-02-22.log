@@ -1,0 +1,227 @@
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /index                    --> goimdemo/service.Index (3 handlers)
+[GIN-debug] POST   /login                    --> goimdemo/service.Login (3 handlers)
+[GIN-debug] GET    /user                     --> goimdemo/service.UserList (4 handlers)
+[GIN-debug] POST   /user                     --> goimdemo/service.CreateUser (4 handlers)
+[GIN-debug] DELETE /user                     --> goimdemo/service.DeleteUser (4 handlers)
+[GIN-debug] PUT    /user                     --> goimdemo/service.UpdateUser (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Environment variable PORT is undefined. Using port :8080 by default
+[GIN-debug] Listening and serving HTTP on :8080
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /index                    --> goimdemo/service.Index (3 handlers)
+[GIN-debug] POST   /login                    --> goimdemo/service.Login (3 handlers)
+[GIN-debug] GET    /user                     --> goimdemo/service.UserList (4 handlers)
+[GIN-debug] POST   /user                     --> goimdemo/service.CreateUser (4 handlers)
+[GIN-debug] DELETE /user                     --> goimdemo/service.DeleteUser (4 handlers)
+[GIN-debug] PUT    /user                     --> goimdemo/service.UpdateUser (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Environment variable PORT is undefined. Using port :8080 by default
+[GIN-debug] Listening and serving HTTP on :8080
+[GIN] 2023/02/22 - 00:04:28 | 200 |       998.6µs |       127.0.0.1 | GET      "/swagger/index.html"
+[GIN] 2023/02/22 - 00:04:29 | 200 |         999µs |       127.0.0.1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2023/02/22 - 00:04:29 | 200 |      5.7945ms |       127.0.0.1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2023/02/22 - 00:04:29 | 200 |            0s |       127.0.0.1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2023/02/22 - 00:04:29 | 200 |            0s |       127.0.0.1 | GET      "/swagger/swagger-ui.css.map"
+[GIN] 2023/02/22 - 00:04:29 | 200 |      1.9949ms |       127.0.0.1 | GET      "/swagger/swagger-ui-bundle.js.map"
+[GIN] 2023/02/22 - 00:04:29 | 200 |      1.3601ms |       127.0.0.1 | GET      "/swagger/swagger-ui-standalone-preset.js.map"
+[GIN] 2023/02/22 - 00:04:29 | 200 |       515.7µs |       127.0.0.1 | GET      "/swagger/doc.json"
+[GIN] 2023/02/22 - 00:04:29 | 200 |            0s |       127.0.0.1 | GET      "/swagger/favicon-32x32.png"
+[GIN] 2023/02/22 - 00:04:44 | 200 |      8.2922ms |       127.0.0.1 | POST     "/login"
+[GIN] 2023/02/22 - 00:05:14 | 400 |            0s |       127.0.0.1 | GET      "/user"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /index                    --> goimdemo/service.Index (3 handlers)
+[GIN-debug] POST   /login                    --> goimdemo/service.Login (3 handlers)
+[GIN-debug] GET    /user                     --> goimdemo/service.UserList (4 handlers)
+[GIN-debug] POST   /user                     --> goimdemo/service.CreateUser (4 handlers)
+[GIN-debug] DELETE /user                     --> goimdemo/service.DeleteUser (4 handlers)
+[GIN-debug] PUT    /user                     --> goimdemo/service.UpdateUser (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Environment variable PORT is undefined. Using port :8080 by default
+[GIN-debug] Listening and serving HTTP on :8080
+[GIN] 2023/02/22 - 00:06:25 | 400 |            0s |       127.0.0.1 | GET      "/user"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /index                    --> goimdemo/service.Index (3 handlers)
+[GIN-debug] POST   /login                    --> goimdemo/service.Login (3 handlers)
+[GIN-debug] GET    /user                     --> goimdemo/service.UserList (4 handlers)
+[GIN-debug] POST   /user                     --> goimdemo/service.CreateUser (4 handlers)
+[GIN-debug] DELETE /user                     --> goimdemo/service.DeleteUser (4 handlers)
+[GIN-debug] PUT    /user                     --> goimdemo/service.UpdateUser (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Environment variable PORT is undefined. Using port :8080 by default
+[GIN-debug] Listening and serving HTTP on :8080
+[GIN] 2023/02/22 - 00:07:08 | 400 |            0s |       127.0.0.1 | GET      "/user"
+[GIN] 2023/02/22 - 00:07:22 | 400 |            0s |       127.0.0.1 | GET      "/user"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /index                    --> goimdemo/service.Index (3 handlers)
+[GIN-debug] POST   /login                    --> goimdemo/service.Login (3 handlers)
+[GIN-debug] GET    /user                     --> goimdemo/service.UserList (4 handlers)
+[GIN-debug] POST   /user                     --> goimdemo/service.CreateUser (4 handlers)
+[GIN-debug] DELETE /user                     --> goimdemo/service.DeleteUser (4 handlers)
+[GIN-debug] PUT    /user                     --> goimdemo/service.UpdateUser (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Environment variable PORT is undefined. Using port :8080 by default
+[GIN-debug] Listening and serving HTTP on :8080
+[GIN] 2023/02/22 - 00:07:57 | 400 |            0s |       127.0.0.1 | GET      "/user"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /index                    --> goimdemo/service.Index (3 handlers)
+[GIN-debug] POST   /login                    --> goimdemo/service.Login (3 handlers)
+[GIN-debug] GET    /user                     --> goimdemo/service.UserList (4 handlers)
+[GIN-debug] POST   /user                     --> goimdemo/service.CreateUser (4 handlers)
+[GIN-debug] DELETE /user                     --> goimdemo/service.DeleteUser (4 handlers)
+[GIN-debug] PUT    /user                     --> goimdemo/service.UpdateUser (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Environment variable PORT is undefined. Using port :8080 by default
+[GIN-debug] Listening and serving HTTP on :8080
+[GIN] 2023/02/22 - 00:09:18 | 400 |       533.8µs |       127.0.0.1 | GET      "/user"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /index                    --> goimdemo/service.Index (3 handlers)
+[GIN-debug] POST   /login                    --> goimdemo/service.Login (3 handlers)
+[GIN-debug] GET    /user                     --> goimdemo/service.UserList (4 handlers)
+[GIN-debug] POST   /user                     --> goimdemo/service.CreateUser (4 handlers)
+[GIN-debug] DELETE /user                     --> goimdemo/service.DeleteUser (4 handlers)
+[GIN-debug] PUT    /user                     --> goimdemo/service.UpdateUser (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Environment variable PORT is undefined. Using port :8080 by default
+[GIN-debug] Listening and serving HTTP on :8080
+[GIN] 2023/02/22 - 00:10:11 | 400 |       579.3µs |       127.0.0.1 | GET      "/user"
+[GIN] 2023/02/22 - 00:13:02 | 400 |            0s |       127.0.0.1 | GET      "/user"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /index                    --> goimdemo/service.Index (3 handlers)
+[GIN-debug] POST   /login                    --> goimdemo/service.Login (3 handlers)
+[GIN-debug] GET    /user                     --> goimdemo/service.UserList (4 handlers)
+[GIN-debug] POST   /user                     --> goimdemo/service.CreateUser (4 handlers)
+[GIN-debug] DELETE /user                     --> goimdemo/service.DeleteUser (4 handlers)
+[GIN-debug] PUT    /user                     --> goimdemo/service.UpdateUser (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Environment variable PORT is undefined. Using port :8080 by default
+[GIN-debug] Listening and serving HTTP on :8080
+[GIN] 2023/02/22 - 00:15:17 | 400 |            0s |       127.0.0.1 | GET      "/user"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /index                    --> goimdemo/service.Index (3 handlers)
+[GIN-debug] POST   /login                    --> goimdemo/service.Login (3 handlers)
+[GIN-debug] GET    /user                     --> goimdemo/service.UserList (4 handlers)
+[GIN-debug] POST   /user                     --> goimdemo/service.CreateUser (4 handlers)
+[GIN-debug] DELETE /user                     --> goimdemo/service.DeleteUser (4 handlers)
+[GIN-debug] PUT    /user                     --> goimdemo/service.UpdateUser (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Environment variable PORT is undefined. Using port :8080 by default
+[GIN-debug] Listening and serving HTTP on :8080
+[GIN] 2023/02/22 - 00:16:27 | 400 |       519.2µs |       127.0.0.1 | GET      "/user"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /index                    --> goimdemo/service.Index (3 handlers)
+[GIN-debug] POST   /login                    --> goimdemo/service.Login (3 handlers)
+[GIN-debug] GET    /user                     --> goimdemo/service.UserList (4 handlers)
+[GIN-debug] POST   /user                     --> goimdemo/service.CreateUser (4 handlers)
+[GIN-debug] DELETE /user                     --> goimdemo/service.DeleteUser (4 handlers)
+[GIN-debug] PUT    /user                     --> goimdemo/service.UpdateUser (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Environment variable PORT is undefined. Using port :8080 by default
+[GIN-debug] Listening and serving HTTP on :8080
+[GIN] 2023/02/22 - 00:19:39 | 400 |       537.4µs |       127.0.0.1 | GET      "/user"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /index                    --> goimdemo/service.Index (3 handlers)
+[GIN-debug] POST   /login                    --> goimdemo/service.Login (3 handlers)
+[GIN-debug] GET    /user                     --> goimdemo/service.UserList (4 handlers)
+[GIN-debug] POST   /user                     --> goimdemo/service.CreateUser (4 handlers)
+[GIN-debug] DELETE /user                     --> goimdemo/service.DeleteUser (4 handlers)
+[GIN-debug] PUT    /user                     --> goimdemo/service.UpdateUser (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Environment variable PORT is undefined. Using port :8080 by default
+[GIN-debug] Listening and serving HTTP on :8080
+[GIN] 2023/02/22 - 00:23:48 | 400 |            0s |       127.0.0.1 | GET      "/user"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] GET    /index                    --> goimdemo/service.Index (3 handlers)
+[GIN-debug] POST   /login                    --> goimdemo/service.Login (3 handlers)
+[GIN-debug] GET    /user                     --> goimdemo/service.UserList (4 handlers)
+[GIN-debug] POST   /user                     --> goimdemo/service.CreateUser (4 handlers)
+[GIN-debug] DELETE /user                     --> goimdemo/service.DeleteUser (4 handlers)
+[GIN-debug] PUT    /user                     --> goimdemo/service.UpdateUser (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Environment variable PORT is undefined. Using port :8080 by default
+[GIN-debug] Listening and serving HTTP on :8080
+[GIN] 2023/02/22 - 00:26:49 | 400 |       994.6µs |       127.0.0.1 | GET      "/user"

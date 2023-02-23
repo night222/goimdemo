@@ -16,6 +16,7 @@ func Router() *gin.Engine {
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 	r.GET("/index", service.Index)
 	r.POST("/login", service.Login)
+	r.GET("/sendweb", service.SendWeb)
 	user := r.Group("/user")
 	user.Use(service.VaildToken)
 	{

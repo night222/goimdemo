@@ -1,9 +1,7 @@
 package main
 
 import (
-	"fmt"
 	"goimdemo/models"
-	"time"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -16,9 +14,9 @@ func main() {
 	}
 
 	// 迁移 schema 如果没有表就创建表
-	db.AutoMigrate(&models.UserBasic{})
-
-	// Create
+	db.AutoMigrate(&models.Contect{})
+	db.AutoMigrate(&models.GroupBasic{})
+	/* // Create
 	user := models.UserBasic{
 		Name:          "first user",
 		Password:      "123123",
@@ -41,5 +39,5 @@ func main() {
 	//db.Model(&product).Updates(map[string]interface{}{"Price": 200, "Code": "F42"})
 
 	// Delete - 删除 product
-	//db.Delete(&product, 1)
+	//db.Delete(&product, 1) */
 }

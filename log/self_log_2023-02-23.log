@@ -1,0 +1,45 @@
+{"level":"debug","time":"2023-02-23T00:11:44.897+0800","caller":"service/websocket.go:47","msg":"[49 49 49]"}
+{"level":"debug","time":"2023-02-23T00:14:15.242+0800","caller":"service/websocket.go:47","msg":"[49 49 49 49]"}
+{"level":"debug","time":"2023-02-23T00:19:50.995+0800","caller":"service/websocket.go:47","msg":"1 [49 49 49 49]"}
+{"level":"debug","time":"2023-02-23T00:19:50.997+0800","caller":"service/websocket.go:53","msg":"2 [49 49 49 49]"}
+{"level":"debug","time":"2023-02-23T00:23:24.098+0800","caller":"service/websocket.go:47","msg":"1 [49 49 49 49]"}
+{"level":"debug","time":"2023-02-23T00:23:24.100+0800","caller":"service/websocket.go:53","msg":"2 [49 49 49 49]"}
+{"level":"debug","time":"2023-02-23T00:23:24.100+0800","caller":"utils/redis.go:19","msg":"断点1"}
+{"level":"debug","time":"2023-02-23T00:23:24.101+0800","caller":"utils/redis.go:21","msg":"断点2"}
+{"level":"debug","time":"2023-02-23T00:31:26.933+0800","caller":"service/websocket.go:47","msg":"1 [49 49 49]"}
+{"level":"debug","time":"2023-02-23T00:31:26.936+0800","caller":"service/websocket.go:53","msg":"2 [49 49 49]"}
+{"level":"debug","time":"2023-02-23T00:31:26.936+0800","caller":"utils/redis.go:19","msg":"断点1"}
+{"level":"debug","time":"2023-02-23T00:31:26.937+0800","caller":"utils/redis.go:21","msg":"断点2"}
+{"level":"debug","time":"2023-02-23T00:31:26.937+0800","caller":"utils/redis.go:23","msg":"断点3"}
+{"level":"debug","time":"2023-02-23T00:32:22.452+0800","caller":"service/websocket.go:47","msg":"1 [49 49 49 49]"}
+{"level":"debug","time":"2023-02-23T00:32:22.453+0800","caller":"service/websocket.go:53","msg":"2 [49 49 49 49]"}
+{"level":"debug","time":"2023-02-23T00:32:22.453+0800","caller":"utils/redis.go:19","msg":"断点1"}
+{"level":"debug","time":"2023-02-23T00:32:22.454+0800","caller":"utils/redis.go:21","msg":"断点2"}
+{"level":"debug","time":"2023-02-23T00:32:22.455+0800","caller":"utils/redis.go:23","msg":"断点3"}
+{"level":"debug","time":"2023-02-23T00:32:22.455+0800","caller":"utils/redis.go:27","msg":"断点4"}
+{"level":"debug","time":"2023-02-23T00:38:59.904+0800","caller":"service/websocket.go:47","msg":"1 [49 49 49]"}
+{"level":"debug","time":"2023-02-23T00:38:59.906+0800","caller":"service/websocket.go:54","msg":"2 [49 49 49]"}
+{"level":"debug","time":"2023-02-23T00:38:59.906+0800","caller":"utils/redis.go:19","msg":"断点1"}
+{"level":"debug","time":"2023-02-23T00:38:59.906+0800","caller":"utils/redis.go:21","msg":"断点2"}
+{"level":"debug","time":"2023-02-23T00:38:59.907+0800","caller":"utils/redis.go:23","msg":"断点3"}
+{"level":"debug","time":"2023-02-23T00:38:59.907+0800","caller":"utils/redis.go:27","msg":"断点4"}
+{"level":"debug","time":"2023-02-23T00:40:17.725+0800","caller":"service/websocket.go:47","msg":"1 [49 50 50 50 49]"}
+{"level":"debug","time":"2023-02-23T00:40:17.729+0800","caller":"service/websocket.go:54","msg":"2 [49 50 50 50 49]"}
+{"level":"debug","time":"2023-02-23T00:40:17.729+0800","caller":"utils/redis.go:19","msg":"断点1"}
+{"level":"debug","time":"2023-02-23T00:40:17.729+0800","caller":"utils/redis.go:21","msg":"断点2"}
+{"level":"debug","time":"2023-02-23T00:40:17.730+0800","caller":"utils/redis.go:23","msg":"断点3"}
+{"level":"debug","time":"2023-02-23T00:40:17.730+0800","caller":"utils/redis.go:27","msg":"断点4"}
+{"level":"debug","time":"2023-02-23T00:43:06.108+0800","caller":"utils/redis.go:19","msg":"断点1"}
+{"level":"debug","time":"2023-02-23T00:43:06.111+0800","caller":"utils/redis.go:21","msg":"断点2"}
+{"level":"debug","time":"2023-02-23T00:43:06.111+0800","caller":"utils/redis.go:23","msg":"断点3"}
+{"level":"debug","time":"2023-02-23T00:43:06.111+0800","caller":"utils/redis.go:27","msg":"断点4"}
+{"level":"debug","time":"2023-02-23T00:44:11.273+0800","caller":"utils/redis.go:19","msg":"断点1"}
+{"level":"debug","time":"2023-02-23T00:44:11.277+0800","caller":"utils/redis.go:21","msg":"断点2"}
+{"level":"debug","time":"2023-02-23T00:48:35.881+0800","caller":"utils/redis.go:19","msg":"断点1"}
+{"level":"debug","time":"2023-02-23T00:48:35.881+0800","caller":"service/websocket.go:54","msg":"[49 49 49]"}
+{"level":"debug","time":"2023-02-23T00:48:35.884+0800","caller":"utils/redis.go:21","msg":"断点2"}
+{"level":"debug","time":"2023-02-23T00:48:57.895+0800","caller":"utils/redis.go:19","msg":"断点1"}
+{"level":"debug","time":"2023-02-23T00:48:57.895+0800","caller":"service/websocket.go:54","msg":"[50 50 50 50]"}
+{"level":"debug","time":"2023-02-23T00:48:57.895+0800","caller":"utils/redis.go:21","msg":"断点2"}
+{"level":"debug","time":"2023-02-23T00:48:57.895+0800","caller":"utils/redis.go:23","msg":"断点3"}
+{"level":"debug","time":"2023-02-23T00:48:57.895+0800","caller":"utils/redis.go:27","msg":"2222"}

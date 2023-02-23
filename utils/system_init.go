@@ -5,6 +5,7 @@
 package utils
 
 import (
+	"context"
 	"fmt"
 	"goimdemo/config"
 	"io"
@@ -13,6 +14,7 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
+	"github.com/go-redis/redis/v8"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
@@ -20,6 +22,7 @@ import (
 
 var ConfigData config.AppConfig
 var DB *gorm.DB
+var RedisClient *redis.Client
 
 // 初始化
 func Init() (err error) {
@@ -28,14 +31,28 @@ func Init() (err error) {
 	if err != nil {
 		return
 	}
-	fmt.Println("config app init")
+	fmt.Println("config app init success")
+	//初始化log
+	err = InitLoger("/self_log_%Y-%m-%d.log")
+	if err != nil {
+		return
+	}
+	fmt.Println("log init successs")
 	//初始化mysql连接
 	err = InitMysql()
 	if err != nil {
 		return
 	}
-	fmt.Println("Mysql init")
-	ginLogWriter, err := RotationFile("/%Y-%m-%d.log")
+	fmt.Println("Mysql init success")
+	//初始化redis连接池
+	err = InitRedis()
+	if err != nil {
+		return
+	}
+	fmt.Println("Redis init success")
+	InitMessage()
+	fmt.Println("message init success")
+	ginLogWriter, err := RotationFile("/gin_log_%Y-%m-%d.log")
 	if err != nil {
 		return
 	}
@@ -61,8 +78,8 @@ func InitMysql() (err error) {
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=%s&parseTime=%s%s",
 		ConfigData.UserName,
 		ConfigData.Passworld,
-		ConfigData.Host,
-		ConfigData.Port,
+		ConfigData.DatabaseConfig.Host,
+		ConfigData.DatabaseConfig.Port,
 		ConfigData.DatabaseName,
 		ConfigData.Charset,
 		ConfigData.ParseTime,
@@ -72,4 +89,35 @@ func InitMysql() (err error) {
 		Logger: newLOger,
 	})
 	return
+}
+
+// 初始化redis连接池
+func InitRedis() (err error) {
+	address := fmt.Sprintf("%s:%s", ConfigData.RedisCofig.Host, ConfigData.RedisCofig.Port)
+	RedisClient = redis.NewClient(&redis.Options{
+		Addr:         address,
+		Network:      "tcp",
+		Password:     ConfigData.RedisCofig.Password,
+		DialTimeout:  time.Duration(ConfigData.ConnectTimeOut) * time.Second,
+		ReadTimeout:  time.Duration(ConfigData.ReadTimeOut) * time.Second,
+		WriteTimeout: time.Duration(ConfigData.WriteTimeOut) * time.Second,
+		IdleTimeout:  time.Duration(ConfigData.RedisCofig.IdleTimeout) * time.Second,
+		PoolSize:     ConfigData.RedisCofig.PoolSize,
+		MinIdleConns: ConfigData.RedisCofig.MinIdleConns,
+	})
+	_, err = RedisClient.Ping(context.TODO()).Result()
+	return
+}
+func InitMessage() {
+	GroupByUserId = ConfigData.Group.UserId
+	GroupByUserId = ConfigData.Group.GroupId
+	MessageQueueChan = make(map[string]map[uint]chan Message, len(GroupByUserId))
+	for i := 0; i < len(GroupByUserId); i++ {
+		MessageQueueChan[GroupByUserId[i]] = make(map[uint]chan Message, 1000)
+	}
+}
+
+// 关闭连接
+func Close() {
+	RedisClient.Close()
 }

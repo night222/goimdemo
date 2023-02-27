@@ -1,1 +1,14 @@
 # goimdemo
+# 一个im即时通讯的server端
+# 目录结果
+common 储存一些公共的常量和对象
+config 配置文件
+docs swagego的配置文件
+initialiaze 初始化文件
+log 日志文件
+models 对应的数据库表的结构体和对表操作的方法,
+routine 路由文件,注册路由
+service 对发送过来的请求操作
+sql 自动化操作数据库的方法
+test 测试文件
+utils 公共功能

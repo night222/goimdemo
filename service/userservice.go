@@ -1,6 +1,7 @@
 package service
 
 import (
+	"goimdemo/common"
 	"goimdemo/models"
 	"goimdemo/utils"
 	"net/http"
@@ -49,7 +50,7 @@ func CreateUser(ctx *gin.Context) {
 		})
 	}
 	//进行md5加密
-	salt := utils.RandString(utils.ConfigData.Max)
+	salt := utils.RandString(common.ConfigData.Max)
 	user.Salt = salt
 	user.Password = utils.MakePassword(user.Password, salt)
 	//验证手机号格式
@@ -69,7 +70,7 @@ func CreateUser(ctx *gin.Context) {
 		})
 		return
 	}
-	models.CreateUser(user)
+	user.CreateUser()
 	ctx.JSON(http.StatusCreated, gin.H{
 		"massage": "创建成功",
 	})
@@ -85,7 +86,7 @@ func DeleteUser(ctx *gin.Context) {
 	user := &models.UserBasic{}
 	id, _ := strconv.ParseUint(ctx.Query("id"), 10, 0)
 	user.ID = uint(id)
-	models.DeleteUser(user)
+	user.DeleteUser()
 	ctx.JSON(200, gin.H{
 		"message": "删除成功",
 	})
@@ -144,7 +145,7 @@ func UpdateUser(ctx *gin.Context) {
 	if user.Password != "" {
 		user.Password = utils.MakePassword(user.Password, vailUser.Salt)
 	}
-	models.UpdateUser(user)
+	user.UpdateUser()
 	ctx.JSON(200, gin.H{
 		"massage": "修改成功",
 	})
@@ -158,7 +159,7 @@ func UpdateUser(ctx *gin.Context) {
 // @Success 200 {string} json{"code","massage"}
 // @Router /login [post]
 func Login(ctx *gin.Context) {
-	user := models.UserBasic{
+	user := &models.UserBasic{
 		LoginTime: time.Now(),
 	}
 	user.Name = ctx.PostForm("username")
@@ -208,7 +209,7 @@ func Login(ctx *gin.Context) {
 		})
 		return
 	}
-	models.UpdateUser(&user)
+	user.UpdateUser()
 	ctx.JSON(200, gin.H{
 		"message": "登录成功！",
 		"token":   token,

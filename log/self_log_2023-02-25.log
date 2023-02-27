@@ -1,0 +1,2 @@
+{"level":"debug","time":"2023-02-25T00:05:09.498+0800","caller":"service/websocket.go:58","msg":"read: read tcp 127.0.0.1:8080->127.0.0.1:64487: wsarecv: An existing connection was forcibly closed by the remote host."}
+{"level":"debug","time":"2023-02-25T00:05:14.515+0800","caller":"service/websocket.go:58","msg":"read: read tcp 127.0.0.1:8080->127.0.0.1:64480: wsarecv: An existing connection was forcibly closed by the remote host."}

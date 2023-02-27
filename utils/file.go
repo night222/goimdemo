@@ -2,6 +2,7 @@ package utils
 
 //文件操作包
 import (
+	"goimdemo/common"
 	"io"
 	"path"
 	"time"
@@ -11,11 +12,11 @@ import (
 
 // 动态化改变文件流
 func RotationFile(logFileName string) (w io.Writer, err error) {
-	fileName := path.Join(ConfigData.Path, logFileName)
+	fileName := path.Join(common.ConfigData.Path, logFileName)
 	logf, err := rotatelogs.New(
 		fileName,
-		rotatelogs.WithRotationTime(time.Duration(ConfigData.RotationTime)),
-		rotatelogs.WithRotationSize(ConfigData.RotationSize*1024),
+		rotatelogs.WithRotationTime(time.Duration(common.ConfigData.RotationTime)),
+		rotatelogs.WithRotationSize(common.ConfigData.RotationSize*1024),
 	)
 	if err != nil {
 		return nil, err

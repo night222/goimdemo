@@ -7,61 +7,40 @@ import (
 	"goimdemo/common"
 	"strconv"
 	"strings"
-	"sync"
 )
 
-// @Title:send_message.go
+// @Title:message.go
 // @Author:proket
-// @Description:发送消息包
-// @Since:2023-02-24 02:50:13
-type Message struct {
-	FormId   uint                //发送者
-	TargetId uint                //接受者
-	GroupId  uint                //接受群
-	Type     common.MessageType  //发送类型
-	Media    common.MessageMedia //消息类型
-	Content  string              // 消息内容
-	Pic      string
-	Url      string
-	Desc     string
-	Amount   int //其他数字统计
-}
-
-// 更具user id 分组 这是接受这id区间
-var GroupByUserId = []string{}
-var GroupByGroupId = []string{}
-
-// 保存过来的消息
-var MessageQueueChanLock sync.RWMutex
-var MessageQueueChan map[string]map[uint]chan Message //注意这个是接受者id区间
+// @Description: 对message的操作
+// @Since:2023-02-24 23:50:54
 func GetGroupByUserId(UserId uint) (string, error) {
-	for k, v := range GroupByUserId {
+	for k, v := range common.GroupByUserId {
 		if isBetween(v, "-", UserId) {
-			return GroupByUserId[k], nil
+			return common.GroupByUserId[k], nil
 		}
 	}
 	return "", errors.New("不在区间内")
 }
-func GetChanUser(id uint) (chan Message, error) {
-	var chanUser chan Message
+func GetChanUser(id uint) (chan common.Message, error) {
+	var chanUser chan common.Message
 	key, err := GetGroupByUserId(id)
 	if err != nil {
 		return chanUser, err
 	}
 	//加读锁
-	MessageQueueChanLock.RLock()
-	chanUser, ok := MessageQueueChan[key][id]
+	common.MessageQueueChanLock.RLock()
+	chanUser, ok := common.MessageQueueChan[key][id]
 	if !ok {
-		MessageQueueChan[key][id] = make(chan Message, 10)
-		chanUser = MessageQueueChan[key][id]
+		common.MessageQueueChan[key][id] = make(chan common.Message, 10)
+		chanUser = common.MessageQueueChan[key][id]
 	}
-	MessageQueueChanLock.RUnlock()
+	common.MessageQueueChanLock.RUnlock()
 	return chanUser, err
 }
 func GetGroupByGroupId(GroupId uint) (string, error) {
-	for k, v := range GroupByGroupId {
+	for k, v := range common.GroupByGroupId {
 		if isBetween(v, "-", GroupId) {
-			return GroupByGroupId[k], nil
+			return common.GroupByGroupId[k], nil
 		}
 	}
 	return "", errors.New("群不在区间内")
@@ -101,22 +80,22 @@ func WriteMessage(data string) (err error) {
 	}
 	switch msg.Type {
 	case common.GroupChat:
-		err = msg.GroupWirteMessage()
+		err = GroupWirteMessage(msg)
 	case common.PrivateChat:
-		err = msg.PrivateWriteMessage(msg.TargetId)
+		err = PrivateWriteMessage(msg, msg.TargetId)
 	case common.PublicChat:
-		err = msg.PublicWriteMessage()
+		err = PublicWriteMessage(msg)
 	}
 	return
 }
 
 // 群消息
-func (m *Message) GroupWirteMessage() (err error) {
+func GroupWirteMessage(m common.Message) (err error) {
 	key, err := GetGroupByGroupId(m.GroupId)
 	if err != nil {
 		return
 	}
-	cmd := RedisClient.HGet(context.Background(), key+ConfigData.Group.PostfixGroup, strconv.Itoa(int(m.GroupId)))
+	cmd := common.RedisClient.HGet(context.Background(), key+common.ConfigData.Group.PostfixGroup, strconv.Itoa(int(m.GroupId)))
 	data, err := cmd.Result()
 	if err != nil {
 		return
@@ -129,7 +108,7 @@ func (m *Message) GroupWirteMessage() (err error) {
 		if m.FormId == uint(targetid) {
 			continue
 		}
-		err = m.PrivateWriteMessage(uint(targetid))
+		err = PrivateWriteMessage(m, uint(targetid))
 		if err != nil {
 			sLoger.Debugf("failed GroupWriteMessage Groupid:%d TargedId:%d  err:%v \n", m.GroupId, targetid, err)
 		}
@@ -138,41 +117,43 @@ func (m *Message) GroupWirteMessage() (err error) {
 }
 
 // 私聊消息
-func (m *Message) PrivateWriteMessage(TargeId uint) (err error) {
+func PrivateWriteMessage(m common.Message, TargeId uint) (err error) {
 	chanUser, err := GetChanUser(TargeId)
 	if err != nil {
 		return
 	}
-	chanUser <- *m
+	common.RecordToMysql <- m
+	chanUser <- m
 	return
 }
 
 // 广播
-func (m *Message) PublicWriteMessage() (err error) {
+func PublicWriteMessage(m common.Message) (err error) {
 	sLoger, Loger := GetSugarLogerAndLoger()
 	defer Loger.Sync()
-	MessageQueueChanLock.RLock()
-	for _, v := range MessageQueueChan {
+	common.MessageQueueChanLock.RLock()
+	for _, v := range common.MessageQueueChan {
 		for k, v := range v {
-			v <- *m
+			common.RecordToMysql <- m
+			v <- m
 			if err != nil {
 				sLoger.Debugf("failed PublicWriteMessage TargedId:%d  err:%v \n", k, err)
 			}
 		}
 	}
-	MessageQueueChanLock.RUnlock()
+	common.MessageQueueChanLock.RUnlock()
 	return
 }
 
 // 序列化Message结构体
-func EncodeMessageJson(m Message) (string, error) {
+func EncodeMessageJson(m common.Message) (string, error) {
 	data, err := json.Marshal(m)
 	return string(data), err
 }
 
 // 反序列化
-func DecodeMessageJson(data string) (Message, error) {
-	m := &Message{}
+func DecodeMessageJson(data string) (common.Message, error) {
+	m := &common.Message{}
 	err := json.Unmarshal([]byte(data), m)
 	return *m, err
 }

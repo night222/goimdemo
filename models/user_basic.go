@@ -1,7 +1,7 @@
 package models
 
 import (
-	"goimdemo/utils"
+	"goimdemo/common"
 	"time"
 
 	"gorm.io/gorm"
@@ -32,29 +32,29 @@ func (table *UserBasic) TableName() string {
 // 查找
 func GetUserList() []UserBasic {
 	UserBasics := make([]UserBasic, 0, 200)
-	utils.DB.Find(&UserBasics)
+	common.DB.Find(&UserBasics)
 	return UserBasics
 }
 
 // 注册
-func CreateUser(user *UserBasic) *gorm.DB {
-	db := utils.DB.Create(user)
+func (user *UserBasic) CreateUser() *gorm.DB {
+	db := common.DB.Create(user)
 	return db
 }
 
 // 删除
-func DeleteUser(user *UserBasic) *gorm.DB {
-	return utils.DB.Delete(user)
+func (user *UserBasic) DeleteUser() *gorm.DB {
+	return common.DB.Delete(user)
 }
 
 // 修改
-func UpdateUser(user *UserBasic) *gorm.DB {
-	return utils.DB.Model(user).Updates(user)
+func (user *UserBasic) UpdateUser() *gorm.DB {
+	return common.DB.Model(user).Updates(user)
 }
 
 // 查询单个用户
 func FirstUser(query interface{}, arg ...interface{}) UserBasic {
 	user := &UserBasic{}
-	utils.DB.Where(query, arg...).First(user)
+	common.DB.Where(query, arg...).First(user)
 	return *user
 }

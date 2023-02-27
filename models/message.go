@@ -6,7 +6,6 @@ package models
 //@Since:2023-02-23 20:11:58
 import (
 	"goimdemo/common"
-	"goimdemo/utils"
 
 	"gorm.io/gorm"
 )
@@ -31,7 +30,7 @@ func (table *Message) TableName() string {
 }
 
 // 添加
-func SaveMessage(m *Message) *gorm.DB {
-	db := utils.DB.Create(m)
+func (m *Message) SaveMessage() *gorm.DB {
+	db := common.DB.Create(m)
 	return db
 }

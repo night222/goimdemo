@@ -1,5 +1,0 @@
-{"level":"debug","time":"2023-02-22T23:08:07.602+0800","caller":"service/websocket.go:34","msg":"failed not token"}
-{"level":"debug","time":"2023-02-22T23:12:22.095+0800","caller":"service/websocket.go:34","msg":"failed not token"}
-{"level":"debug","time":"2023-02-22T23:14:21.389+0800","caller":"service/websocket.go:34","msg":"failed not token"}
-{"level":"debug","time":"2023-02-22T23:15:54.366+0800","caller":"service/websocket.go:38","msg":"failed upgrader.Upgrade ip:127.0.0.1 url: username:demo1 id:16"}
-{"level":"debug","time":"2023-02-22T23:21:28.233+0800","caller":"service/websocket.go:49","msg":"read: websocket: close 1005 (no status)"}

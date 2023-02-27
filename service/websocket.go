@@ -2,6 +2,7 @@ package service
 
 import (
 	"context"
+	"goimdemo/common"
 	"goimdemo/utils"
 	"net/http"
 
@@ -64,7 +65,7 @@ func SendWeb(ctx *gin.Context) {
 			sLoger.Debugln("websocker common.GetGroupByUserId", err)
 			return
 		}
-		err = utils.Publist(context, key+utils.ConfigData.Group.PostfixUser, string(msg))
+		err = utils.Publist(context, key+common.ConfigData.Group.PostfixUser, string(msg))
 		if err != nil {
 			cancel()
 			sLoger.Debugln("failed redis publist sendweb", err)

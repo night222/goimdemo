@@ -1,6 +1,7 @@
 # goimdemo
 # 一个im即时通讯的server端
-# 目录结果
+# 目录结构
+clinte 客户端
 common 储存一些公共的常量和对象
 config 配置文件
 docs swagego的配置文件

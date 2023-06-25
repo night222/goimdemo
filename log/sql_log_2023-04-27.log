@@ -1,0 +1,15 @@
+
+2023/04/27 01:31:57 D:/data/golang-test/src/goimdemo/initialiaze/init_db.go:38
+[error] failed to initialize database, got error dial tcp 192.168.101.8:3306: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+
+2023/04/27 19:47:08 D:/data/golang-test/src/goimdemo/initialiaze/init_db.go:38
+[error] failed to initialize database, got error dial tcp 192.168.101.10:3306: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+
+2023/04/27 19:47:34 D:/data/golang-test/src/goimdemo/initialiaze/init_db.go:38
+[error] failed to initialize database, got error dial tcp 192.168.101.10:3306: connectex: No connection could be made because the target machine actively refused it.
+
+2023/04/27 19:48:00 D:/data/golang-test/src/goimdemo/initialiaze/init_db.go:38
+[error] failed to initialize database, got error dial tcp 192.168.101.10:3306: connectex: No connection could be made because the target machine actively refused it.
+
+2023/04/27 19:50:10 D:/data/golang-test/src/goimdemo/initialiaze/init_db.go:38
+[error] failed to initialize database, got error dial tcp 192.168.101.10:3306: connectex: No connection could be made because the target machine actively refused it.

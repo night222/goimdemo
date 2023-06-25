@@ -26,7 +26,6 @@ func InitMysql() (err error) {
 		IgnoreRecordNotFoundError: false,       //是否显示没有查询到的结果
 	})
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=%s&parseTime=%s%s",
-		common.ConfigData.UserName,
 		common.ConfigData.Passworld,
 		common.ConfigData.DatabaseConfig.Host,
 		common.ConfigData.DatabaseConfig.Port,
@@ -34,6 +33,7 @@ func InitMysql() (err error) {
 		common.ConfigData.Charset,
 		common.ConfigData.ParseTime,
 		common.ConfigData.Supplement,
+		common.ConfigData.UserName,
 	)
 	common.DB, err = gorm.Open(mysql.Open(dsn), &gorm.Config{
 		Logger: newLOger,
